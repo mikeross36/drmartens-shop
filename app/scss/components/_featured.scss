@@ -1,0 +1,61 @@
+@use "../mixins";
+@use "../variables" as *;
+
+.featured {
+    background-color: $bodyBcg;
+}
+
+.featured__container {
+    row-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+
+    .boot {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        background-color: $lightClr;
+        border-radius: $radius;
+        box-shadow: $shadowOne;
+        transition: .3s;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-.5rem);
+        }
+
+        &__sale {
+            position: absolute;
+            left: .5rem;
+            background-color: $darkClr;
+            color: $whiteClr;
+            padding: .25rem .5rem;
+            border-radius: .25rem;
+            font-size: $fontSlg;
+            transform: rotate(-90deg);
+            letter-spacing: .1rem;
+        }
+
+        &__img {
+            width: 10rem;
+            margin-top: $mb-3;
+            margin-bottom: $mb-6;
+            transform: $rotateImg;
+            filter: drop-shadow(0 12px 8px rgba(0,0,0, .2));
+        }
+
+        &__name, &__price {
+            font-size: $fontMd;
+            font-weight: 500;
+        }
+
+        &__name {
+            margin-bottom: $mb-1;
+        }
+
+        &__price {
+            margin-bottom: $mb-2;
+        }
+    }
+}

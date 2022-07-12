@@ -1,0 +1,55 @@
+@use "../mixins";
+@use "../variables" as *;
+
+.footer {
+    background-color: $bodyBcg;
+}
+
+.footer__container {
+    grid-template-columns: 100%;
+
+    @include mixins.breakpoint-up(medium){
+        grid-template-columns: repeat(4,1fr);
+        justify-items: center;
+    }
+    
+    .footer__logo {
+        color: $darkClr;
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 2;
+    }
+
+    .footer__box {
+        margin-bottom: $mb-3;
+    }
+
+    .footer__title {
+        font-size: $fontMd;
+        margin-bottom: $mb-1;
+    }
+
+    .footer__link {
+        display: block;
+        width: max-content;
+        color: $darkClr;
+        font-weight: 500;
+        margin-bottom: $mb-2;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .footer__social {
+        display: block;
+        margin-bottom: $mb-2;
+    }
+}
+
+.footer__copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}

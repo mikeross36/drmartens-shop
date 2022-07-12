@@ -1,0 +1,108 @@
+@use "../mixins";
+@use "../variables" as *;
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: $bodyBcg;
+
+    .nav {
+        height: calc($headerHight + .5rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include mixins.breakpoint-up(medium){
+            height: calc($headerHight + 1rem);
+        }
+
+        &__toggle {
+            cursor: pointer;
+
+            @include mixins.breakpoint-up(medium){
+                display: none;
+            }
+        }
+
+        &__logo {
+            display: flex;
+            align-items: center;
+            column-gap: .3rem;
+            color: $darkClr;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        &__menu {
+
+            /* during development, value of left: 0; */
+            @include mixins.breakpoint-down(medium){
+                position: fixed;
+                top: $headerHight;
+                left: -100%;
+                width: 70%;
+                height: 100vh;
+                padding: 2rem;
+                background-color: $bodyBcg;
+                transition: all .5s ease-in-out;
+                box-shadow: $shadowOne;
+            }
+
+            @include mixins.breakpoint-up(medium){
+                margin-left: auto;
+            }
+
+            .nav__list {
+                @include mixins.breakpoint-up(medium){
+                    display: flex;
+                }
+            }
+
+            .nav__item {
+                margin-bottom: $mb-5;
+
+                @include mixins.breakpoint-up(medium){
+                    margin-left: $mb-6;
+                    margin-bottom: 0;
+                }
+
+                .nav__link {
+                    font-size: $fontSlg;
+                    color: $darkClr;
+                    font-weight: 700;
+                }
+            }
+
+            .nav__close {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.25rem;
+                cursor: pointer;
+
+                @include mixins.breakpoint-up(medium){
+                    display: none;
+                }
+            }
+        }
+
+        &__logo img, &__shop img {
+            cursor: pointer;
+            
+            @include mixins.breakpoint-up(large) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    .show {
+        left: 0;
+    }
+}
+
+.scroll-header {
+    background-color: $whiteClr;
+    box-shadow: 0 2px 4px rgba(0,0,0, .1);
+}

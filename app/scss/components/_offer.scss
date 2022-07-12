@@ -1,0 +1,44 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.offer {
+    
+    &__container {
+        grid-template-columns: 55% 45%;
+        column-gap: 0;
+        justify-content: center;
+        background-color: $lightClr;
+        border-radius: $radius;
+        box-shadow: $shadowOne;
+
+        @include mixins.breakpoint-up(small){
+            grid-template-columns: max-content max-content;
+        }
+    }
+
+    .offer__data {
+        padding: 4rem 0 4rem 1.5rem;
+
+        @include mixins.breakpoint-up(small) {
+            text-align: center;
+        }
+    }
+
+    .offer__title {
+        font-size: $fontSlg;
+        margin-bottom: $mb-3;
+    }
+
+    .offer__description {
+        margin-bottom: $mb-3;
+        font-weight: 500;
+    }
+
+    .offer__img {
+        width: 10rem;
+
+        @include mixins.breakpoint-up(medium) {
+            width: 12rem;
+        }
+    }
+}

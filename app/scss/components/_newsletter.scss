@@ -1,0 +1,50 @@
+@use "../mixins";
+@use "../variables" as *;
+
+.newsletter__container {
+    background-color: $darkClr;
+    color: $whiteClr;
+    padding: 2rem .5rem;
+    border-radius: $radius;
+    text-align: center;
+
+    @include mixins.breakpoint-up(medium) {
+        grid-template-columns: max-content max-content;
+        justify-content: center;
+        align-items: center;
+        column-gap: 3rem;
+        padding: 4.5rem 1rem;
+    }
+
+    .newsletter__title {
+        margin-bottom: $mb-2;
+    }
+
+    .newsletter__description {
+        margin-bottom: $mb-5;
+    }
+
+    .newsletter__subscribe {
+        display: flex;
+        column-gap: .5rem;
+        background-color: $whiteClr;
+        padding: .5rem;
+        border-radius: $radius;
+
+        .newsletter__input {
+            border: none;
+            outline: none;
+            width: 90%;
+            font-size: $fontMd;
+
+            &::placeholder {
+                color: $darkClr;
+                font-size: $fontLg;
+            }
+        }
+
+        & button {
+            padding: 1rem;
+        }
+    }
+}

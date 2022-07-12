@@ -1,0 +1,40 @@
+@use "../variables" as *;
+
+.button {
+    background-color: $softGreenClr;
+    padding: 1rem 2rem;
+    border-radius: $radius;
+    transition: .3s;
+    box-shadow: $shadowOne;
+
+    & a {
+        color: $darkClr;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+    &:hover {
+        transform: translateY(-.25rem);
+    }
+}
+
+.button-light {
+    display: inline-flex;
+    align-items: center;
+    padding: .5rem .7rem;
+    color: $darkClr;
+    font-weight: 700;
+    background-color: $softGreenClr;
+    align-items: center;
+    box-shadow: $shadowOne;
+    cursor: pointer;
+
+    &:hover img {
+        transform: translateX(.25rem);
+    }
+
+    & img {
+        transition: .3s;
+        margin-left: $mb-1;
+    }
+}

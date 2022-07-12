@@ -1,0 +1,58 @@
+@use "../mixins";
+@use "../variables" as *;
+
+.collection {
+
+    &__container {
+        row-gap: 2rem;
+        justify-content: center;
+
+        @include mixins.breakpoint-up(small){
+            grid-template-columns: 27rem;
+        }
+
+        @include mixins.breakpoint-up(large){
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .collection__card {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        height: 20.5rem;
+        background-color: $lightClr;
+        padding: 1rem 2rem;
+        border-radius: $radius;
+        transition: .3s;
+        box-shadow: $shadowOne;
+
+        @include mixins.breakpoint-up(small) {
+            align-items: center;
+            padding: 2rem;
+        }
+
+        &:hover {
+            transform: translateY(-.5rem);
+        }
+
+        .collection__img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10rem;
+
+            @include mixins.breakpoint-up(small) {
+                width: 16.25rem;
+            }
+        }
+
+        .collection__name {
+            margin-bottom: .25rem;
+        }
+
+        .collection__description {
+            margin-bottom: $mb-2;
+        }
+    }
+}
