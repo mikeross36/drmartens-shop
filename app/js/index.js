@@ -38,14 +38,20 @@ window.onscroll = () => {
 
 const toggleCart = () => {
     const cart = document.querySelector(".cart")
-    const navShop = document.querySelectorAll(".nav__shop")
+    const navShop = document.querySelector(".nav__shop")
+    const cartNavShop = document.querySelector(".cart_nav_shop")
     const cartClose = document.querySelectorAll(".cart__close")
+
     
     if (navShop) {
-        navShop.forEach(btn => {
-            btn.addEventListener("click", () => {
-                cart.classList.add("show-cart")
-            })
+        navShop.addEventListener("click", () => {
+           cart.classList.add("show-cart")
+       })
+    }
+
+    if (cartNavShop) {
+        cartNavShop.addEventListener("click", () => {
+            cart.classList.add("show-cart")
         })
     }
 

@@ -2,6 +2,29 @@
 @use "../variables" as *;
 
 #shop {
+    .home__link {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        margin-top: -2rem;
+        margin-bottom: $mb-5;
+
+        &-link {
+            display: block;
+            padding: .2rem .5rem;
+            font-size: $fontMd;
+            font-weight: 700;
+            color: $darkClr;
+            transition: .3s;
+            border-radius: $radius;
+
+            &:hover {
+                transform: scale(1.2);
+                color: $softGreenClr;
+                text-shadow: .1rem .1rem .1rem $darkClr-light
+            }
+        }
+    }
 
     .boot {
         position: relative;

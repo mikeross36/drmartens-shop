@@ -7,11 +7,22 @@ const terser = require("gulp-terser")
 const concat = require("gulp-concat")
 const imagemin = require("gulp-imagemin")
 const embedsvg = require("gulp-embed-svg")
+const fileinclude = require("gulp-file-include")
 
 const files = {
     scssPath: "app/scss/**/*.scss",
     jsPath: "app/js/**/*.js",
     imgPath: "app/images/**/*"
+}
+
+function htmlTask() {
+    return src([
+        "*.html",
+        "!shop.html"
+    ]).pipe(fileinclude({
+            prefix: "@@",
+            basepath: "@file"
+    })).pipe(dest("dist"))
 }
 
 function scssTask() {
@@ -48,6 +59,7 @@ function watchTask() {
 }
 
 exports.default = series(
+    htmlTask,
     parallel(scssTask, jsTask),
     imageminTask,
     embedSvgTask,

@@ -10,128 +10,15 @@
     <script src="/dist/js/all.js" defer></script>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <nav class="nav grid">
-            <div class="nav__toggle" id="nav-toggle">
-                <img src="/app/images/menu-btn.svg" alt="mobmenu btn" width="30px" height="30px">
-            </div>
-            <a href="#" class="nav__logo">
-                <img src="/app/images/boot-logo.svg" alt="loog" width="30px" height="30px">
-                martens
-            </a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="./index.html" class="nav__link">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="./index.html#featured" class="nav__link">Featured</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="./index.html#women" class="nav__link">Women</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="./index.html#new" class="nav__link">New</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#shop" class="nav__link">Shop</a>
-                    </li>
-                </ul>
-                <a href="#" class="nav__close" id="nav-close">
-                    <img src="/app/images/close-btn.svg" alt="close menu btn" width="40px" height="40px">
-                </a>
-            </div>
-            <div class="nav__shop">
-                <img src="/app/images/shopping-cart.svg" alt="shopping cart icon" width="30px" height="30px">
-            </div>
-        </nav>
-    </header>
-
-    <!-- CART -->
-
-    <aside class="cart" id="cart">
-        <span class="cart__close" id="cart-close">
-            <img src="/app/images/close-btn.svg" alt="close cart btn" width="30px" height="30px">
-        </span>
-        
-        <h2 class="cart__title-center">Your Cart</h2>
-        <div class="cart__container grid">
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/app/images/drmartens17.png" alt="" class="cart__img">
-                </div>
-                <div class="cart__details">
-                    <h4 class="cart__title">Dr Martens Boots</h4>
-                    <span class="cart__price">£199.99</span>
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <img src="/app/images/chevron-down.svg" alt="" width="20px" height="20px">
-                            </span>
-                            <span class="cart__amount-number">0</span>
-                            <span class="cart__amount-box">
-                                <img src="/app/images/chevron-up.svg" alt="" width="20px" height="20px">
-                            </span>
-                        </div>
-                        <img src="/app/images/can-trash.svg" alt="" class="cart__amount-trash" width="25px" height="25px">
-                    </div>
-                </div>
-            </article>
-            <!--  -->
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/app/images/drmaterns8.png" alt="" class="cart__img">
-                </div>
-                <div class="cart__details">
-                    <h4 class="cart__title">Dr Martens Boots</h4>
-                    <span class="cart__price">£199.99</span>
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <img src="/app/images/chevron-down.svg" alt="" width="20px" height="20px">
-                            </span>
-                            <span class="cart__amount-number">0</span>
-                            <span class="cart__amount-box">
-                                <img src="/app/images/chevron-up.svg" alt="" width="20px" height="20px">
-                            </span>
-                        </div>
-                        <img src="/app/images/can-trash.svg" alt="" class="cart__amount-trash" width="25px" height="25px">
-                    </div>
-                </div>
-            </article>
-            <!--  -->
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/app/images/drmaterns13.png" alt="" class="cart__img">
-                </div>
-                <div class="cart__details">
-                    <h4 class="cart__title">Dr Martens Boots</h4>
-                    <span class="cart__price">£199.99</span>
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <img src="/app/images/chevron-down.svg" alt="" width="20px" height="20px">
-                            </span>
-                            <span class="cart__amount-number">0</span>
-                            <span class="cart__amount-box">
-                                <img src="/app/images/chevron-up.svg" alt="" width="20px" height="20px">
-                            </span>
-                        </div>
-                        <img src="/app/images/can-trash.svg" alt="" class="cart__amount-trash" width="25px" height="25px">
-                    </div>
-                </div>
-            </article>
-        </div>
-        <div class="cart__prices">
-            <span class="cart__prices-item">3 items</span>
-            <span class="cart__prices-total">£2800.00</span>
-        </div>
-    </aside>
 
     <main class="main">
         <!-- ALL PRODUCTS -->
         <section class="women section" id="shop">
+            <div class="home__link">
+                <a href="/index.html#home" class="home__link-link">
+                    Back To Home <img src="/app/images/arrow-right.svg" alt="arrow right icon" width="20px" height="20px">
+                </a>
+            </div>
             <h2 class="section-title">All Products</h2>
             <div class="women__container grid">
                 <article class="boot">
