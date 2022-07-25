@@ -1,12 +1,21 @@
 const openMenu = (navToggleId, navMenuId) => {
     const navToggle = document.getElementById(navToggleId)
     const navMenu = document.getElementById(navMenuId)
+    const navSearchForm = document.querySelector(".nav__search-form")
 
     if (navToggleId, navMenuId) {
         navToggle.addEventListener("click", () => {
             navMenu.classList.add("show")
+            closeSearchForm()
         })
     }
+
+    function closeSearchForm() {
+        if (navSearchForm.classList.contains("active-form")) {
+            return navSearchForm.classList.remove("active-form")
+        }
+    }
+    
 };
 
 const closeMenu = () => {
@@ -26,6 +35,14 @@ const closeMenu = () => {
     }
 }
 
+const toggleSearch = () => {
+    const navSearchForm = document.querySelector(".nav__search-form")
+    const navSearch = document.querySelector(".nav__search")
+    navSearch.addEventListener("click", () => {
+        navSearchForm.classList.toggle("active-form")
+    })
+}
+
 window.onscroll = () => {
     const header = document.getElementById("header")
     if (this.scrollY >= 30) {
@@ -42,7 +59,6 @@ const toggleCart = () => {
     const cartNavShop = document.querySelector(".cart_nav_shop")
     const cartClose = document.querySelectorAll(".cart__close")
 
-    
     if (navShop) {
         navShop.addEventListener("click", () => {
            cart.classList.add("show-cart")
@@ -67,5 +83,6 @@ const toggleCart = () => {
 (function () {
     openMenu("nav-toggle", "nav-menu")
     closeMenu()
+    toggleSearch()
     toggleCart()
 })();
