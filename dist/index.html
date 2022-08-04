@@ -51,10 +51,10 @@
                     </div>
                 </div>
                 <div class="nav__search-form">
-                    <input type="search" class="search__input" id="search-input" placeholder="search here...">
-                    <!-- <label for="search-input">
-                        <img src="/app/images/search-icon.svg" alt="search icon" class="search__icon" width="10px" height="10px">
-                    </label> -->
+                    <label for="search-input">
+                        <img src="/app/images/search-icon.svg" alt="search icon" class="search__icon" width="20px" height="20px">
+                    </label>
+                    <input type="search" class="search__input" id="search-input" oninput="liveSearch()" placeholder="search here...">
                 </div>
             </nav>
         </header>
@@ -142,6 +142,7 @@
         <!-- MAIN -->
         <main class="main">
             <!-- HOME -->
+            <span class="inner-text">home</span>
             <section class="home" id="home">
                 <div class="home__container grid">
                     <div class="home__boot">
@@ -166,6 +167,7 @@
 
             <!-- FEATURED -->
             <section class="featured section" id="featured">
+                <span class="inner-text">featured</span>
                 <h2 class="section-title">FEATURED</h2>
                 <div class="featured__container grid">
                     <article class="boot">

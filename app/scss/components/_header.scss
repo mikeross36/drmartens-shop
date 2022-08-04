@@ -110,12 +110,11 @@
         .nav__icons {
             display: flex;
             align-items: center;
-            // justify-content: space-between;
         }
 
         .nav__search-form {
             position: absolute;
-            top: 145%;
+            top: 40%;
             right: 5%;
             width: 90%;
             height: 1rem;
@@ -148,9 +147,10 @@
             }
 
             & label {
+                position: absolute;
+                top: 0;
+                right: 5%;
                 cursor: pointer;
-                font-size: $fontSm;
-                margin-right: 1.5rem;
             }
         }
     }

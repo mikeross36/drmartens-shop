@@ -38,8 +38,13 @@ const closeMenu = () => {
 const toggleSearch = () => {
     const navSearchForm = document.querySelector(".nav__search-form")
     const navSearch = document.querySelector(".nav__search")
+    const closeSearch = document.querySelector(".close-search")
+
     navSearch.addEventListener("click", () => {
         navSearchForm.classList.toggle("active-form")
+    })
+    closeSearch.addEventListener("click", () => {
+        navSearchForm.classList.remove("active-form")
     })
 }
 
@@ -51,7 +56,7 @@ window.onscroll = () => {
     else {
         header.classList.remove("scroll-header")
     }
-}
+};
 
 const toggleCart = () => {
     const cart = document.querySelector(".cart")
@@ -61,8 +66,8 @@ const toggleCart = () => {
 
     if (navShop) {
         navShop.addEventListener("click", () => {
-           cart.classList.add("show-cart")
-       })
+            cart.classList.add("show-cart")
+        })
     }
 
     if (cartNavShop) {
@@ -76,9 +81,9 @@ const toggleCart = () => {
             btn.addEventListener("click", () => {
                 cart.classList.remove("show-cart")
             })
-        })
+        }) 
     }
-}
+};
 
 (function () {
     openMenu("nav-toggle", "nav-menu")
@@ -86,3 +91,5 @@ const toggleCart = () => {
     toggleSearch()
     toggleCart()
 })();
+
+
