@@ -50,12 +50,12 @@
                         <img src="/app/images/shopping-cart.svg" alt="shopping cart icon" width="30px" height="30px">
                     </div>
                 </div>
-                <div class="nav__search-form">
+                <form class="nav__search-form">
                     <label for="search-input">
-                        <img src="/app/images/search-icon.svg" alt="search icon" class="search__icon" width="20px" height="20px">
+                        <img src="/app/images/close-btn.svg" alt="close search icon" class="close-search" width="20px" height="20px">
                     </label>
-                    <input type="search" class="search__input" id="search-input" oninput="liveSearch()" placeholder="search here...">
-                </div>
+                    <input type="search" class="search__input" id="search-input" onkeyup="filterSearch()" placeholder="search here...">
+                </form>
             </nav>
         </header>
 
@@ -142,7 +142,6 @@
         <!-- MAIN -->
         <main class="main">
             <!-- HOME -->
-            <span class="inner-text">home</span>
             <section class="home" id="home">
                 <div class="home__container grid">
                     <div class="home__boot">
@@ -167,7 +166,6 @@
 
             <!-- FEATURED -->
             <section class="featured section" id="featured">
-                <span class="inner-text">featured</span>
                 <h2 class="section-title">FEATURED</h2>
                 <div class="featured__container grid">
                     <article class="boot">

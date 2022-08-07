@@ -18,6 +18,7 @@
     "gulp-file-include": "^2.3.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-inject-svg": "^0.1.18",
+    "gulp-json-editor": "^2.5.6",
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
     "sass": "^1.53.0"

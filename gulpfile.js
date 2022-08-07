@@ -17,8 +17,8 @@ const files = {
 
 function htmlTask() {
     return src([
-        "*.html",
-        "!shop.html"
+        "*/.html",
+        // "!shop.html"
     ]).pipe(fileinclude({
             prefix: "@@",
             basepath: "@file"

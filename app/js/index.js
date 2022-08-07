@@ -1,21 +1,18 @@
-const openMenu = (navToggleId, navMenuId) => {
-    const navToggle = document.getElementById(navToggleId)
-    const navMenu = document.getElementById(navMenuId)
+const openMenu = () => {
+    const navToggle = document.getElementById("nav-toggle")
+    const navMenu = document.getElementById("nav-menu")
     const navSearchForm = document.querySelector(".nav__search-form")
 
-    if (navToggleId, navMenuId) {
-        navToggle.addEventListener("click", () => {
-            navMenu.classList.add("show")
-            closeSearchForm()
-        })
-    }
+    navToggle.addEventListener("click", () => {
+        navMenu.classList.add("show")
+        closeSearchForm()
+    })
 
     function closeSearchForm() {
         if (navSearchForm.classList.contains("active-form")) {
             return navSearchForm.classList.remove("active-form")
         }
     }
-    
 };
 
 const closeMenu = () => {
@@ -35,19 +32,6 @@ const closeMenu = () => {
     }
 }
 
-const toggleSearch = () => {
-    const navSearchForm = document.querySelector(".nav__search-form")
-    const navSearch = document.querySelector(".nav__search")
-    const closeSearch = document.querySelector(".close-search")
-
-    navSearch.addEventListener("click", () => {
-        navSearchForm.classList.toggle("active-form")
-    })
-    closeSearch.addEventListener("click", () => {
-        navSearchForm.classList.remove("active-form")
-    })
-}
-
 window.onscroll = () => {
     const header = document.getElementById("header")
     if (this.scrollY >= 30) {
@@ -60,33 +44,24 @@ window.onscroll = () => {
 
 const toggleCart = () => {
     const cart = document.querySelector(".cart")
-    const navShop = document.querySelector(".nav__shop")
-    const cartNavShop = document.querySelector(".cart_nav_shop")
-    const cartClose = document.querySelectorAll(".cart__close")
+    const navShop = document.querySelectorAll(".nav__shop")
+    const cartClose = document.querySelector(".cart__close")
 
-    if (navShop) {
-        navShop.addEventListener("click", () => {
-            cart.classList.add("show-cart")
+    navShop.forEach(btn => {
+        btn.addEventListener("click", () => {
+            if (cart) cart.classList.add("show-cart")
         })
-    }
-
-    if (cartNavShop) {
-        cartNavShop.addEventListener("click", () => {
-            cart.classList.add("show-cart")
-        })
-    }
-
+    })
+    
     if (cartClose) {
-        cartClose.forEach(btn => {
-            btn.addEventListener("click", () => {
-                cart.classList.remove("show-cart")
-            })
-        }) 
+        cartClose.addEventListener("click", () => {
+            cart.classList.remove("show-cart")
+        })
     }
 };
 
 (function () {
-    openMenu("nav-toggle", "nav-menu")
+    openMenu()
     closeMenu()
     toggleSearch()
     toggleCart()
