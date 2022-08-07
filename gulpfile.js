@@ -17,7 +17,7 @@ const files = {
 
 function htmlTask() {
     return src([
-        "*/.html",
+        "*.html",
         // "!shop.html"
     ]).pipe(fileinclude({
             prefix: "@@",

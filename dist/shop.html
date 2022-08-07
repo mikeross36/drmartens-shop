@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>Cool Dr Martens Boots</title>
+    <link rel="stylesheet" href="/dist/css/main.css">
+    <script src="/dist/js/all.js" defer></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <nav class="nav grid">
+            <div class="nav__toggle" id="nav-toggle">
+                <img src="/app/images/menu-btn.svg" alt="mobmenu btn" width="30px" height="30px">
+            </div>
+            <a href="#" class="nav__logo">
+                <img src="/app/images/boot-logo.svg" alt="loog" width="30px" height="30px">
+                martens
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="./index.html#home" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./index.html#featured" class="nav__link">Featured</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./index.html#women" class="nav__link">Women</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./index.html#new" class="nav__link">New</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./shop.html" class="nav__link">Shop</a>
+                    </li>
+                </ul>
+                <a href="#" class="nav__close" id="nav-close">
+                    <img src="/app/images/close-btn.svg" alt="close menu btn" width="35px" height="35px">
+                </a>
+            </div>
+            <div class="nav__icons">
+                <div class="nav__search">
+                    <img src="/app/images/search-icon.svg" alt="search icon" class="search__icon" width="30px" height="30px">
+                </div>
+                <div class="nav__shop" id="nav-shop">
+                    <img src="/app/images/shopping-cart.svg" alt="shopping cart icon" width="30px" height="30px">
+                </div>
+            </div>
+            <form class="nav__search-form">
+                <label for="search-input">
+                    <img src="/app/images/close-btn.svg" alt="close search icon" class="close-search" width="20px" height="20px">
+                </label>
+                <input type="search" class="search__input" id="search-input" onkeyup="filterSearch()" placeholder="search here...">
+            </form>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- ALL PRODUCTS -->
+        <section class="shop section" id="shop">
+            <h2 class="section-title">All Products</h2>
+            <div class="shop__container grid">
+                <!-- SHOP BOOT ARTICLE -->
+            </div>
+            <!--  -->
+            <div class="boot__pages grid">
+                <div>
+                    <span class="boot__page">1</span>
+                    <span class="boot__page">2</span>
+                    <span class="boot__page">3</span>
+                    <span class="boot__page">4</span>
+                    <span class="boot__page">&#8594;</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="footer section">
+        <div class="footer__container grid">
+            <div class="footer__box">
+                <a href="#" class="footer__logo">
+                    <img src="/app/images/boot-logo.svg" alt="loog" width="40px" height="40px">
+                    martens
+                </a>
+            </div>
+            <div class="footer__box">
+                <h3 class="footer__title">EXPLORE</h3>
+                <ul>
+                    <li><a href="/index.html#home" class="footer__link">Home</a></li>
+                    <li><a href="/index.html#featured" class="footer__link">Featured</a></li>
+                    <li><a href="/index.html#women" class="footer__link">Women</a></li>
+                    <li><a href="/index.html#new" class="footer__link">New</a></li>
+                </ul>
+            </div>
+            <div class="footer__box">
+                <h3 class="footer__title">SUPPORT</h3>
+                <ul>
+                    <li><a href="#" class="footer__link">Product Help</a></li>
+                    <li><a href="#" class="footer__link">Customer Care</a></li>
+                    <li><a href="#" class="footer__link">Authorized Service</a></li>
+                </ul>
+            </div>
+            <div class="footer__box">
+                <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                    <img src="/app/images/facebook-icon.svg" alt="" width="30px" height="30px">
+                </a>
+                <a href="https://twitter.com/?lang=en" class="footer__social" target="_blank">
+                    <img src="/app/images/twitter-icon.svg" alt="" width="30px" height="30px">
+                </a>
+                <a href="https://www.instagram.com/" class="footer__social" target="_blank">
+                    <img src="/app/images/instagram-icon.svg" alt="" width="30px" height="30px">
+                </a>
+                <a href="https://github.com/" class="footer__social" target="_blank">
+                    <img src="/app/images/github-icon.svg" alt="" width="30px" height="30px">
+                </a>
+            </div>
+        </div>
+        <p class="footer__copy">&copy;2022 DodaDesign All Rights Reserved</p>
+    </footer>
+</body>
+</html>
