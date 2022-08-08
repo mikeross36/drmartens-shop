@@ -1,67 +1,93 @@
 const { src, dest, watch, series, parallel } = require("gulp")
+const imagemin = require('gulp-imagemin');
+const sourcemaps = require('gulp-sourcemaps');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const terser = require('gulp-terser');
+const sass = require('gulp-sass')(require("sass"));
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
-const sass = require("gulp-sass")(require("sass"))
-const autoprefixer = require("gulp-autoprefixer")
-const cleancss = require("gulp-clean-css")
-const terser = require("gulp-terser")
-const concat = require("gulp-concat")
-const imagemin = require("gulp-imagemin")
-const embedsvg = require("gulp-embed-svg")
-const fileinclude = require("gulp-file-include")
+const paths = {
+    html: {
+      src: ['./app/**/*.html'],
+      dest: './dist/',
+    },
+    images: {
+      src: ['./app/images/**/*'],
+      dest: './dist/images/',
+    },
+    styles: {
+      src: ['./app/scss/**/*.scss'],
+      dest: './dist/css/',
+    },
+    scripts: {
+      src: ['./app/js/**/*.js'],
+      dest: './dist/js/',
+    },
+    cachebust: {
+      src: ['./dist/**/*.html'],
+      dest: './dist/',
+    },
+  };
 
-const files = {
-    scssPath: "app/scss/**/*.scss",
-    jsPath: "app/js/**/*.js",
-    imgPath: "app/images/**/*"
+
+function copyHtml() {
+    return src(paths.html.src)
+        .pipe(dest(paths.html.dest));
 }
 
-function htmlTask() {
-    return src([
-        "*.html",
-        // "!shop.html"
-    ]).pipe(fileinclude({
-            prefix: "@@",
-            basepath: "@file"
-    })).pipe(dest("dist"))
+function optimizeImages() {
+    return src(paths.images.src)
+    .pipe(imagemin().on('error', (error) => console.log(error)))
+    .pipe(dest(paths.images.dest));
 }
 
-function scssTask() {
-    return src(files.scssPath)
-    .pipe(sass())
-    .pipe(autoprefixer("last 2 versions"))
-    .pipe(cleancss())
-    .pipe(dest("dist/css"))
+function compileStyles() {
+    return src(paths.styles.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest(paths.styles.dest));
 }
 
-function jsTask() {
-    return src(files.jsPath)
+function minifyScripts() {
+    return src(paths.scripts.src)
+    .pipe(sourcemaps.init())
     .pipe(concat("all.js"))
-    .pipe(terser())
-    .pipe(dest("dist/js"))
+    .pipe(terser().on('error', (error) => console.log(error)))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest(paths.scripts.dest));
 }
 
-function imageminTask() {
-    return src(files.imgPath)
-    .pipe(imagemin())
-    .pipe(dest("dist/images"))
+function cacheBust() {
+    return src(paths.cachebust.src)
+    .pipe(replace(/cache_bust=\d+/g, 'cache_bust=' + new Date().getTime()))
+    .pipe(dest(paths.cachebust.dest));
 }
 
-function embedSvgTask() {
-    return src("*/.html")
-    .pipe(embedsvg())
-    .pipe(dest("dist/images"))
+function watcher() {
+    watch(paths.html.src, series(copyHtml, cacheBust));
+    watch(paths.images.src, optimizeImages);
+    watch(paths.styles.src, parallel(compileStyles, cacheBust));
+    watch(paths.scripts.src, parallel(minifyScripts, cacheBust));
 }
 
-function watchTask() {
-    watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask))
-    watch(files.imgPath, imageminTask)
-    watch("*/.html", embedSvgTask)
-}
+exports.copyHtml = copyHtml;
+exports.optimizeImages = optimizeImages;
+exports.compileStyles = compileStyles;
+exports.minifyScripts = minifyScripts;
+exports.cacheBust = cacheBust;
+exports.watcher = watcher;
 
 exports.default = series(
-    htmlTask,
-    parallel(scssTask, jsTask),
-    imageminTask,
-    embedSvgTask,
-    watchTask
-)
+  parallel(copyHtml, optimizeImages, compileStyles, minifyScripts),
+  cacheBust,
+  watcher
+);
+
