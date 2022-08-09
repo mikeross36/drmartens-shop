@@ -31,8 +31,8 @@
             }
 
             .home__overlay {
-                width: 14rem;
-                height: 14rem;
+                width: 13rem;
+                height: 13rem;
                 background-color: $bodyBcg;
                 border-radius: 50%;
                 box-shadow: $shadowOne;
@@ -47,7 +47,7 @@
                 position: absolute;
                 width: 13rem;
                 max-width: initial;
-                bottom: 5rem;
+                bottom: 20%;
                 transform: $rotateImg;
                 filter: drop-shadow(rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px);
 
@@ -59,11 +59,17 @@
         }
 
         .home__data {
-
             color: $darkClr;
 
+            .home__title {
+                line-height: 120%;
+
+                @include mixins.breakpoint-up(large) {
+                   line-height: 150%;
+                }
+            }
+
             & h1:nth-child(3){
-                line-height: 150%;
                 background: linear-gradient(170deg, #fac002 27.16%, #2d03fd 97.86%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
