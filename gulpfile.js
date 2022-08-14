@@ -22,7 +22,7 @@ function scssTask() {
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write())
-    .pipe(dest("dist/css"))
+    .pipe(dest("dist/css/"))
 }
 
 function jsTask() {
@@ -31,19 +31,19 @@ function jsTask() {
     .pipe(concat("all.js"))
     .pipe(terser())
     .pipe(sourcemaps.write())
-    .pipe(dest("dist/js"))
+    .pipe(dest("dist/js/"))
 }
 
 function imageminTask() {
     return src(files.imgPath)
     .pipe(imagemin())
-    .pipe(dest("dist/images"))
+    .pipe(dest("dist/images/"))
 }
 
 function embedSvgTask() {
     return src("*/.html")
         .pipe(embedsvg())
-    .pipe(dest("dist/images"))
+    .pipe(dest("dist/images/"))
 }
 
 function watchTask() {
