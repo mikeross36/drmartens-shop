@@ -1,13 +1,13 @@
 const { src, dest, watch, series, parallel } = require("gulp");
 
 const sass = require("gulp-sass")(require("sass"))
-const autoprefixer = require("gulp-autoprefixer")
-const cleancss = require("gulp-clean-css")
+const autoprefixer = require("autoprefixer")
+const cssnano = require("cssnano")
+const postcss = require("gulp-postcss")
 const terser = require("gulp-terser")
 const concat = require("gulp-concat")
 const imagemin = require("gulp-imagemin")
 const embedsvg = require("gulp-embed-svg")
-const mode = require("gulp-mode")();
 const sourcemaps = require("gulp-sourcemaps")
 
 const files = {
@@ -18,20 +18,19 @@ const files = {
 
 function scssTask() {
     return src(files.scssPath)
-    .pipe(mode.development(sourcemaps.init()))
+    .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
-    .pipe(autoprefixer("last 2 versions"))
-    .pipe(cleancss())
-    .pipe(mode.development(sourcemaps.write()))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write())
     .pipe(dest("dist/css"))
 }
 
 function jsTask() {
     return src(files.jsPath)
-    .pipe(mode.development(sourcemaps.init()))
+    .pipe(sourcemaps.init())
     .pipe(concat("all.js"))
     .pipe(terser())
-    .pipe(mode.development(sourcemaps.write()))
+    .pipe(sourcemaps.write())
     .pipe(dest("dist/js"))
 }
 
