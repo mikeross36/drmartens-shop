@@ -6,8 +6,8 @@
 }
 
 .shop__container {
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-    row-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 2rem;
 
     @include mixins.breakpoint-up(medium) {
         column-gap: 1rem;
@@ -16,35 +16,83 @@
     .boot {
         position: relative;
         height: 20rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 2rem 1rem;
+        width: 15rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 0;
         background-color: $lightClr;
         border-radius: $radius;
         box-shadow: $shadowOne;
-        transition: .3s;
 
         &__img {
             position: absolute;
-            top: 2rem;
-            width: 10rem;
-            transform: $rotateImg;
+            width: 11rem;
+            left: 15%;
             filter: drop-shadow(0 12px 8px rgba(0,0,0, .2));    
         }
 
+        &__data {
+            transform: translateY(14rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            & button {
+                opacity: 0;
+            }
+        }
+
         &__name, &__price {
-            font-size: $fontMd;
             font-weight: 500;
         }
 
         &__name {
+            font-size: $fontSlg;
             margin-bottom: $mb-1;
         }
 
         &__price {
-            margin-bottom: $mb-5;
+            font-size: $fontSlg;
+            margin-bottom: $mb-3;
+            display: inline-block;
+        }
+
+        &__description {
+            text-align: center;
+            margin-bottom: $mb-3;
+            opacity: 0;
+        }
+
+        &__img,
+        &__data,
+        &__name,
+        &__price,
+        &__description {
+            transition: .7s;
+        }
+
+        &:hover {
+            cursor: pointer;
+            .boot__img {
+                transform: translate(-1.5rem, -4rem) rotate(-20deg);
+            }
+            .boot__data {
+                transform: translateY(8rem);
+            }
+            .boot__name {
+                font-size: $fontMd;
+                margin-bottom: 0;
+            }
+            .boot__price {
+                font-size: $fontMd;
+                margin-bottom: $mb-1;
+            }
+            .boot__description,
+            button {
+                transition-delay: .2s;
+                opacity: 1;
+            }
         }
     }
 }

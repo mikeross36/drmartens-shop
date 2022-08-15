@@ -3,52 +3,103 @@
 
 .women {
     background-color: $bodyBcg;
+
+    .women__container {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 2rem;
+    
+        @include mixins.breakpoint-up(medium) {
+            column-gap: 1rem;
+            padding: 2rem 0;
+        }
+    
+        .women__boot {
+            position: relative;
+            height: 20rem;
+            width: 14rem;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: $lightClr;
+            border-radius: $radius;
+            box-shadow: $shadowOne;
+    
+            .women__boot-img {
+                position: absolute;
+                width: 11rem;
+                top: 10%;
+                left: 15%;
+                filter: drop-shadow(0 12px 8px rgba(0,0,0, .2));        
+            }
+    
+            .women__boot-data {
+                transform: translateY(15rem);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                overflow-y: hidden;
+    
+                & button {
+                    opacity: 0;
+                }
+    
+                .boot__name, .boot__price {
+                    font-weight: 500;
+                }
+        
+                .boot__name {
+                    font-size: $fontSlg;
+                    margin-bottom: $mb-1;
+                }
+        
+                .boot__price {
+                    font-size: $fontSlg;
+                    margin-bottom: $mb-3;
+                    display: inline-block;
+                }
+
+                .boot__description {
+                    text-align: center;
+                    margin-bottom: $mb-3;
+                    opacity: 0;
+                }
+            }
+
+                .women__boot-img,
+                .women__boot-data,
+                .boot__name,
+                .boot__price,
+                .boot__description {
+                    transition: .7s;
+                }
+
+            &:hover {
+                cursor: pointer;
+
+                .women__boot-img {
+                    transform: translate(-1.5rem, -4rem) rotate(-25deg);
+                }
+                .women__boot-data {
+                    transform: translateY(10rem);
+                }
+                .boot__name {
+                    font-size: $fontMd;
+                    margin-bottom: 0;
+                }
+                .boot__price {
+                    font-size: $fontMd;
+                    margin-bottom: $mb-1;
+                }
+                .boot__description {
+                    margin-bottom: $mb-1;
+                }
+                .boot__description,
+                button {
+                    transition-delay: .2s;
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }
 
-.women__container {
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-    row-gap: 2rem;
-
-    @include mixins.breakpoint-up(medium) {
-        column-gap: 1rem;
-    }
-
-    .boot {
-        position: relative;
-        height: 20rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 2rem 1rem;
-        background-color: $lightClr;
-        border-radius: $radius;
-        box-shadow: $shadowOne;
-        transition: .3s;
-
-        &:hover {
-            transform: translateY(-.5rem);
-        }
-
-        &__img {
-            position: absolute;
-            top: 2.5rem;
-            width: 10rem;
-            transform: $rotateImg;
-            filter: drop-shadow(0 12px 8px rgba(0,0,0, .2));        
-        }
-
-        &__name, &__price {
-            font-size: $fontMd;
-            font-weight: 500;
-        }
-
-        &__name {
-            margin-bottom: $mb-1;
-        }
-
-        &__price {
-            margin-bottom: $mb-3;
-        }
-    }
-}

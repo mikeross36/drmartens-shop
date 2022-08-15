@@ -19,13 +19,18 @@ class UI {
         let result = "";
         shopBoots.forEach(boot => {
             result += `
-            <article class="boot">
+                <article class="boot">
                     <img src="${boot.image}" alt="sale boot" class="boot__img">
-                    <span class="boot__name">${boot.name}</span>
-                    <span class="boot__price">${boot.price}</span>
-                    <button class="button-light">
-                        Add to cart <img src="/app/images/arrow-right.svg" alt="arrow right icon" width="20px" height="20px">
-                    </button>
+                    <div class="boot__data">
+                        <h4 class="boot__name">${boot.name}</h4>
+                        <span class="boot__price">${boot.price}</span>
+                        <p class="boot__description">
+                            The embodiment of iconic <br/> Dr Martens Footwear   
+                        </p>
+                        <button class="button-light">
+                            Add to cart <img src="/app/images/arrow-right.svg" alt="arrow right icon" width="20px" height="20px">
+                        </button>
+                    </div>
                 </article>
             `
         });
