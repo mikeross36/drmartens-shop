@@ -1,29 +1,45 @@
 @use "../mixins";
 @use "../variables" as *;
 
+.cart__overlay {
+    position: fixed;
+    top: 0rem;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transition: $mainTransition;
+    z-index: 2;
+    visibility: hidden;
+}
+
 .cart {
     position: fixed;
     background-color: $whiteClr;
     z-index: 100;
-    top: 0;
+    top: $headerHight;
     right: 0;
     width: 100%;
     height: 100%;
-    padding: 3.5rem 0;
-    transition: .5s;
-    transform: scale(0) rotate(720deg);
+    padding-top: 3.5rem;
+    transition: $mainTransition;
+    transform: translateX(100%);
     opacity: 0;
+    overflow: scroll;
     transition-delay: .2s;
+    z-index: 3;
 
     @include mixins.breakpoint-up(medium){
-        width: 26.25rem;
+        max-width: 35rem;
+        width: 40vw;
         box-shadow: $shadowOne;
     }
 
     .cart__close {
         position: absolute;
-        top: 1.25rem;
+        top: 4rem;
         left: .9rem;
+        z-index: 3;
         cursor: pointer;
     }
 
@@ -110,7 +126,12 @@
 }
 
 .show-cart {
-    transform: scale(1) rotate(0deg);
+    transform: translateX(0);
     opacity: 1;
     transition-duration: .5s;
+}
+
+.show-overlay {
+    visibility: visible;
+    background: rgba($darkClr-light, .5);
 }

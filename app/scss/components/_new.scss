@@ -88,9 +88,13 @@
                 bottom: 0;
             }
 
-            .overlay__title, .overlay__price {
+            .overlay__title, 
+            .overlay__price, 
+            .overlay__description {
                 color: $lightClr;
                 text-align: center;
+                text-shadow: $textSh;
+                font-weight: 500;
             }
 
             .overlay__price {
