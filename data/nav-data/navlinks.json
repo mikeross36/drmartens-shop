@@ -1,0 +1,27 @@
+[
+    {
+        "id": "05477fb4-c438-4aec-91b3-0151ba2553ee",
+        "link": "#home",
+        "text": "home"
+    },
+    {
+        "id": "82a79fb9-7106-4a6b-b27f-6a8fb1188d0b",
+        "link": "#featured",
+        "text": "featured"
+    },
+    {
+        "id": "358400ee-e076-4f06-8d1c-d5cac0de1e88",
+        "link": "#women",
+        "text": "women"
+    },
+    {
+        "id": "eb763ece-4997-40e7-b760-64cd36dd917c",
+        "link": "#new",
+        "text": "new"
+    },
+    {
+        "id": "3122f5f6-88e0-4e57-b8a5-e9c67ceeba8f",
+        "link": "./shop.html",
+        "text": "shop"
+    }
+]

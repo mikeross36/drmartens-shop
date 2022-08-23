@@ -36,7 +36,6 @@
             text-transform: uppercase;
         }
         &__menu {
-            /* during development, value of left: 0; */
             @include mixins.breakpoint-down(medium){
                 position: fixed;
                 top: $headerHight;
@@ -53,7 +52,7 @@
                 margin-left: auto;
             }
 
-            .nav__list {
+            .nav__list, .shop-nav__list {
                 @include mixins.breakpoint-up(medium){
                     display: flex;
                 }
@@ -75,6 +74,7 @@
                     font-size: $fontSlg;
                     color: $darkClr;
                     font-weight: 700;
+                    text-transform: capitalize;
 
                     @include mixins.breakpoint-up(medium) {
                         font-size: 1.2rem;

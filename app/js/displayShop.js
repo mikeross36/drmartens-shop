@@ -14,7 +14,7 @@ class ShopBoots {
     }
 };
 
-class UI {
+class Shop {
     displayShopBoots(shopBoots) {
         let result = "";
         shopBoots.forEach(boot => {
@@ -43,9 +43,9 @@ class UI {
 
 document.addEventListener("DOMContentLoaded", () => {
     const boots = new ShopBoots()
-    const ui = new UI()
+    const shop = new Shop()
 
     boots.getShopBoots().then(boots => {
-        ui.displayShopBoots(boots)
+        shop.displayShopBoots(boots)
     })
 })

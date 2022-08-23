@@ -18,19 +18,13 @@ const openMenu = () => {
 const closeMenu = () => {
     const closeBtn = document.getElementById("nav-close")
     const navMenu = document.getElementById("nav-menu")
-    const navLinks = [...document.querySelectorAll(".nav__link")]
 
-    if (closeBtn && navLinks) {
+    if (closeBtn) {
         closeBtn.addEventListener("click", () => {
             navMenu.classList.remove("show")
         })
-        navLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                navMenu.classList.remove("show")
-            })
-        })
     }
-}
+};
 
 window.onscroll = () => {
     const header = document.getElementById("header")
