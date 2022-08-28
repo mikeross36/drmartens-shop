@@ -1,0 +1,20 @@
+[
+    {
+        "id": "14d14646-2bda-45f2-b811-207b2c17f472",
+        "image": "./app/images/drmartens26.png",
+        "name": "Some Dr Martens Boots",
+        "price": "£199.99"
+    },
+    {
+        "id": "0c7e79c2-2a07-43ad-82f1-781684249dc5",
+        "image": "./app/images/drmartens18.png",
+        "name": "Some Dr Martens Boots",
+        "price": "£199.99"
+    },
+    {
+        "id": "59fddf89-0645-4563-ac37-8430691c5a63",
+        "image": "./app/images/drmartens31.png",
+        "name": "Some Dr Martens Boots",
+        "price": "£199.99"
+    }
+]

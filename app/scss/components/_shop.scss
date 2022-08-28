@@ -7,6 +7,7 @@
 
 .shop__container {
     grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    justify-content: center;
     gap: 2rem;
 
     @include mixins.breakpoint-up(medium) {

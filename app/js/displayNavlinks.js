@@ -13,8 +13,6 @@ const domElements = () => {
 
 let { navList, navMenu, closeMobMenu } = domElements()
 
-
-
 class NavLinks {
     getLinks = async () =>{
         try {

@@ -1,10 +1,10 @@
-class ShopBoots {
+"use strict"
+
+class Shop {
     async getShopBoots() {
         try {
             const response = await fetch("data/shop-data/shop.json")
-            const data = await response.json()
-            const shopBoots = data;
-            // console.log(shopBoots)
+            const shopBoots = await response.json()
 
             return shopBoots;
         }
@@ -12,9 +12,7 @@ class ShopBoots {
             console.log(error)
         }
     }
-};
 
-class Shop {
     displayShopBoots(shopBoots) {
         let result = "";
         shopBoots.forEach(boot => {
@@ -35,17 +33,12 @@ class Shop {
             `
         });
         const shopContainer = document.querySelector(".shop__container")
-        if (shopContainer) {
-            shopContainer.insertAdjacentHTML("beforeend", result)
-        }
+        if (shopContainer) shopContainer.insertAdjacentHTML("beforeend", result)
     }
-}
+};
 
-document.addEventListener("DOMContentLoaded", () => {
-    const boots = new ShopBoots()
+(async () => {
     const shop = new Shop()
-
-    boots.getShopBoots().then(boots => {
-        shop.displayShopBoots(boots)
-    })
-})
+    const shopBoots = await shop.getShopBoots()
+    shop.displayShopBoots(shopBoots)
+})();

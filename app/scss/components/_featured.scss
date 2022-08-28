@@ -7,13 +7,16 @@
 
 .featured__container {
     row-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    justify-content: center;
 
     .boot {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 15rem;
+        margin: 0 auto;
         padding: 2rem;
         background-color: $lightClr;
         border-radius: $radius;

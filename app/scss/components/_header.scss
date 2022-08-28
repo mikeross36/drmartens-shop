@@ -151,6 +151,10 @@
                 top: 0;
                 right: 4%;
                 cursor: pointer;
+
+                .close-search {
+                    background-color: $whiteClr;
+                }
             }
         }
     }

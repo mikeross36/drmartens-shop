@@ -36,32 +36,10 @@ window.onscroll = () => {
     }
 };
 
-const toggleCart = () => {
-    const cartOverlay = document.querySelector(".cart__overlay")
-    const cart = document.querySelector(".cart")
-    const navShop = document.querySelectorAll(".nav__shop")
-    const cartClose = document.querySelector(".cart__close")
-
-    navShop.forEach(btn => {
-        btn.addEventListener("click", () => {
-            if(cartOverlay) cartOverlay.classList.add("show-overlay")
-            if (cart) cart.classList.add("show-cart")
-        })
-    })
-    
-    if (cartClose) {
-        cartClose.addEventListener("click", () => {
-            cart.classList.remove("show-cart")
-            cartOverlay.classList.remove("show-overlay")
-        })
-    }
-};
-
 (function () {
     openMenu()
     closeMenu()
     toggleSearch()
-    toggleCart()
 })();
 
 

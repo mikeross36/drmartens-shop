@@ -6,6 +6,7 @@
 
     .women__container {
         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        justify-content: center;
         gap: 2rem;
     
         @include mixins.breakpoint-up(medium) {
@@ -16,7 +17,7 @@
         .women__boot {
             position: relative;
             height: 20rem;
-            width: 14rem;
+            max-width: 14rem;
             margin: 0 auto;
             padding: 1rem;
             background-color: $lightClr;
@@ -27,7 +28,7 @@
                 position: absolute;
                 width: 11rem;
                 top: 10%;
-                left: 15%;
+                left: 10%;
                 filter: drop-shadow(0 12px 8px rgba(0,0,0, .2));        
             }
     
